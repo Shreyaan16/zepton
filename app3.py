@@ -10,6 +10,13 @@ import streamlit as st
 import time
 from io import StringIO
 
+# Set page config - must be the first Streamlit command
+st.set_page_config(
+    page_title="Medical Data Analyst",
+    page_icon="🩺",
+    layout="wide"
+)
+
 # Initialize API key from environment variables
 # This will work with both local .env files and deployment secrets
 GEMINI_API_KEY = None
@@ -588,11 +595,6 @@ def display_message(is_user, message):
 
 # Main Streamlit UI
 def main():
-    st.set_page_config(
-        page_title="Medical Data Analyst",
-        page_icon="🩺",
-        layout="wide"
-    )
     
     st.markdown("""
 <style>
