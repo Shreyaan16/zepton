@@ -10,25 +10,34 @@ import streamlit as st
 import time
 from io import StringIO
 
-# Try to load environment variables from .env file if it exists
+# Initialize API key from environment variables
+# This will work with both local .env files and deployment secrets
+GEMINI_API_KEY = None
+
+# For local development: Try to load from .env file if it exists
 try:
     from dotenv import load_dotenv
     load_dotenv()
 except ImportError:
     pass
 
-# Initialize API key from environment variable
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+# First check for a Streamlit secret
+try:
+    GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
+except (KeyError, AttributeError):
+    # If not in Streamlit secrets, try environment variable
+    GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 # If API key exists, configure the API
 if GEMINI_API_KEY:
     try:
         genai.configure(api_key=GEMINI_API_KEY)
+        st.write("API Key loaded successfully!")
     except Exception as e:
         st.error(f"Error configuring Gemini API: {e}")
         GEMINI_API_KEY = None
 else:
-    GEMINI_API_KEY = None
+    st.warning("Gemini API key not found. Some features will be limited.")
 
 # Initialize session state for chat history if it doesn't exist
 if 'chat_history' not in st.session_state:
