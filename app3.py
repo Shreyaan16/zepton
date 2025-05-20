@@ -56,63 +56,6 @@ if 'df' not in st.session_state:
 if 'summary' not in st.session_state:
     st.session_state.summary = None
 
-# st.markdown("""
-# <div id="video-overlay">
-#     <video id="intro-video" autoplay muted>
-#         <source src="https://cdn.pixabay.com/video/2023/01/09/145864-787701151_large.mp4" type="video/mp4">
-#         Your browser does not support the video tag.
-#     </video>
-# </div>
-
-# <style>
-# #video-overlay {
-#     position: fixed;
-#     top: 0;
-#     left: 0;
-#     width: 100%;
-#     height: 100%;
-#     background: #000;
-#     z-index: 9999;
-#     display: flex;
-#     justify-content: center;
-#     align-items: center;
-# }
-
-# #intro-video {
-#     width: 100%;
-#     height: 100%;
-#     object-fit: cover;
-# }
-
-# .stApp {
-#     visibility: hidden;
-# }
-
-# .stApp.visible {
-#     visibility: visible;
-# }
-# </style>
-
-# <script>
-# document.addEventListener('DOMContentLoaded', function() {
-#     const video = document.getElementById('intro-video');
-#     const overlay = document.getElementById('video-overlay');
-#     const app = document.querySelector('.stApp');
-
-#     video.onended = function() {
-#         overlay.style.display = 'none';
-#         app.classList.add('visible');
-#     };
-
-#     // Fallback: If video fails to load or play, show content after 5 seconds
-#     setTimeout(function() {
-#         overlay.style.display = 'none';
-#         app.classList.add('visible');
-#     }, 5000);
-# });
-# </script>
-# """, unsafe_allow_html=True)
-
 # Function to check if dataframe has all required columns
 def validate_df_columns(df):
     required_columns = ['NPI', 'State', 'Region', 'Speciality', 
@@ -706,123 +649,107 @@ h1, h2, h3, h4 {
     z-index: 0;
     overflow: hidden;
 }
-                /*my styels*/
-                .st-emotion-cache-10c9vv9 {
-                color- white !important;
-                font-size: 22px !important;
-                font-weight: 600 !important;
-                }
-                .st-emotion-cache-iyz50i:hover {
+
+/* Custom styles */
+.st-emotion-cache-10c9vv9 {
+    color: white !important;
+    font-size: 22px !important;
+    font-weight: 600 !important;
+}
+.st-emotion-cache-iyz50i:hover {
     border-color: 2px solid black !important;
-                -webkit-text-fill-color: white !important;
+    -webkit-text-fill-color: white !important;
     background-color: white !important;
-                }
-                .stButton > button {
-                width:250px !important;
-                height: 100px !important;
-                color:white !important;
-                }
-                .stFileUploader {
-                width:650px !important;
-                height: 200px !important;
-                border:linear-gradient(to right, #ff6ec4, #7873f5) !important;
-                background-color: rgba(120, 115, 245, 0.2) !important;
-                }
-                .st-emotion-cache-br351g {
-                font-size:28px !important;
-                font-weight: 600 !important;
-                   background: linear-gradient(90deg, #1B263B, #415A77);
+}
+.stFileUploader {
+    width: 650px !important;
+    height: 200px !important;
+    border: linear-gradient(to right, #ff6ec4, #7873f5) !important;
+    background-color: rgba(120, 115, 245, 0.2) !important;
+}
+.st-emotion-cache-br351g {
+    font-size: 28px !important;
+    font-weight: 600 !important;
+    background: linear-gradient(90deg, #1B263B, #415A77);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+.st-emotion-cache-1s2v671 {
+    width: 550px !important;
+}
+.st-emotion-cache-1gulkj5 {
+    width: 550px !important;
+}
 
-
-
-                }
- .st-emotion-cache-1s2v671 {
-                width:550px !important;
-                }
-                .st-emotion-cache-1gulkj5 {
-                width:550px !important;
-                }
-
-
-
-
-
-                div[data-testid="stForm"] {
-    background: #ffffff !important; /* White background for contrast */
-    border: 3px solid transparent !important; /* Reserve space for gradient */
-    border-image: linear-gradient(45deg, #1B263B, #415A77) 1 !important; /* Bluish gradient border */
+div[data-testid="stForm"] {
+    background: #ffffff !important;
+    border: 3px solid transparent !important;
+    border-image: linear-gradient(45deg, #1B263B, #415A77) 1 !important;
     border-image-slice: 1 !important;
-    border-radius: 12px !important; /* Rounded corners */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important; /* Subtle shadow */
-    padding: 20px !important; /* Add padding inside the form */
-    max-width: 600px !important; /* Constrain width for better appearance */
-    margin: 0 auto !important; /* Center the form */
+    border-radius: 12px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    padding: 20px !important;
+    max-width: 600px !important;
+    margin: 0 auto !important;
 }
 
-/* Style the label ("Ask a Question") */
 div[data-testid="stForm"] label[data-testid="stWidgetLabel"] p {
-    font-size: 20px !important; /* Increase font size */
-    font-weight: 600 !important; /* Make it bold */
-    color: #1B263B !important; /* Dark navy color for text */
-    margin-bottom: 10px !important; /* Add spacing below */
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    color: #1B263B !important;
+    margin-bottom: 10px !important;
 }
 
-/* Style the textarea */
 div[data-testid="stForm"] div[data-testid="stTextAreaRootElement"] textarea {
-    font-size: 18px !important; /* Increase font size for placeholder and input text */
-    color: #000000 !important; /* Black text for better visibility */
-    background: #ffffff !important; /* White background */
-    border: 2px solid #1B263B !important; /* More visible border */
+    font-size: 18px !important;
+    color: #000000 !important;
+    background: #ffffff !important;
+    border: 2px solid #1B263B !important;
     border-radius: 8px !important;
-    padding: 12px !important; /* More padding for comfort */
-    height: 120px !important; /* Increase height for better usability */
-    caret-color: #1B263B !important; /* Make cursor more visible */
+    padding: 12px !important;
+    height: 120px !important;
+    caret-color: #1B263B !important;
 }
 
-/* Style the placeholder text */
 div[data-testid="stForm"] div[data-testid="stTextAreaRootElement"] textarea::placeholder {
-    font-size: 18px !important; /* Increase placeholder font size */
-    color: #888 !important; /* Lighter gray for placeholder */
+    font-size: 18px !important;
+    color: #888 !important;
 }
 
-/* Style the buttons ("Send" and "Clear initializes") */
 div[data-testid="stForm"] button[data-testid="stBaseButton-secondaryFormSubmit"] {
-    font-size: 16px !important; /* Increase font size */
-    font-weight: 500 !important; /* Medium weight */
-    background: linear-gradient(90deg, #1B263B, #415A77) !important; /* Gradient background for buttons */
-    color: white !important; /* White text */
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    background: linear-gradient(90deg, #1B263B, #415A77) !important;
+    color: white !important;
     border: none !important;
     border-radius: 8px !important;
-    padding: 10px 20px !important; /* More padding for larger buttons */
-    transition: transform 0.2s ease !important; /* Add hover effect */
-    margin: 0 auto !important; /* Center align buttons */
-    display: block !important; /* Ensure proper centering */
+    padding: 10px 20px !important;
+    transition: transform 0.2s ease !important;
+    margin: 0 auto !important;
+    display: block !important;
 }
 
-/* Center the columns containing buttons */
 div[data-testid="stForm"] [data-testid="column"] {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
 }
 
-/* Add hover effect for buttons */
 div[data-testid="stForm"] button[data-testid="stBaseButton-secondaryFormSubmit"]:hover {
-    transform: scale(1.05) !important; /* Slight scale on hover */
+    transform: scale(1.05) !important;
 }
 
 .st-emotion-cache-16tyu1 p, .st-emotion-cache-16tyu1 ol, .st-emotion-cache-16tyu1 ul, .st-emotion-cache-16tyu1 dl, .st-emotion-cache-16tyu1 li {
-                font-size:24px !important;
-                font-weight: 600 !important;
-                }
- .st-emotion-cache-1fmytai {
-                background:linear-gradient(to right, #1e3c72, #2a5298, #6a0572);
-                font-size:40px !important;
-                font-weight: 600 !important;}
-                
-h1, h2{
+    font-size: 24px !important;
+    font-weight: 600 !important;
+}
+.st-emotion-cache-1fmytai {
+    background: linear-gradient(to right, #1e3c72, #2a5298, #6a0572);
+    font-size: 40px !important;
+    font-weight: 600 !important;
+}
+
+h1, h2 {
     background: linear-gradient(90deg, #8e2de2, #4a00e0);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -832,6 +759,43 @@ h1, h2{
     margin-bottom: 1rem;
 }
 
+/* Specific styles for Data Upload Section buttons */
+.upload-section .stButton > button,
+.upload-section .stDownloadButton > button {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 50px !important;
+    font-size: 12px !important;
+    padding: 8px 10px !important;
+    white-space: normal !important;
+    line-height: 1.2 !important;
+    border-radius: 10px !important;
+}
+
+/* Style for the sample data table */
+.sample-data-table {
+    width: 100% !important;
+    overflow-x: auto !important;
+}
+.sample-data-table table {
+    width: 100% !important;
+    font-size: 12px !important;
+    border-collapse: collapse !important;
+}
+.sample-data-table th,
+.sample-data-table td {
+    max-width: 120px !important; /* Limit column width */
+    min-width: 80px !important; /* Ensure columns aren't too narrow */
+    white-space: normal !important; /* Allow text wrapping */
+    word-wrap: break-word !important; /* Break long words */
+    padding: 5px !important; /* Reduce padding for compactness */
+    text-align: left !important;
+    border: 1px solid #ddd !important; /* Add borders for clarity */
+}
+.sample-data-table th {
+    background-color: #f5f5f5 !important;
+    font-weight: bold !important;
+}
 </style>       
 """, unsafe_allow_html=True)
 
@@ -844,14 +808,14 @@ h1, h2{
     <div class="floating">💫</div>
 </div>
 """, unsafe_allow_html=True)
+
     # Header
     st.markdown("""
     <div class="main-header-box">
-                <span style="font-size: 32px;">🩺</span>
-    <h1>Medical Data Analysis Assistant</h1>
-</div>
+        <span style="font-size: 32px;">🩺</span>
+        <h1>Medical Data Analysis Assistant</h1>
+    </div>
     """, unsafe_allow_html=True)
-    #st.markdown("Explore medical professional data with ease. Upload your dataset and ask questions to uncover insights.", unsafe_allow_html=True)
 
     # Create tabs
     tab1, tab2 = st.tabs(["📊 Data Management", "💬 Chat Interface"])
@@ -863,7 +827,7 @@ h1, h2{
         with st.container():
             st.markdown("#### Upload Dataset", unsafe_allow_html=True)
             with st.container():
-                st.markdown('<div class="card">', unsafe_allow_html=True)
+                st.markdown('<div class="card upload-section">', unsafe_allow_html=True)
                 uploaded_file = st.file_uploader("Drag and drop or click to upload a CSV file", type=['csv'])
                 if uploaded_file is not None:
                     with st.spinner("Processing your data..."):
@@ -880,26 +844,28 @@ h1, h2{
                         except Exception as e:
                             st.error(f"Oops, something went wrong: {e}")
                 
-                col1, col2 = st.columns([3, 1])
+                # Define sample data
+                sample_data = {
+                    'NPI': [1234567890, 2345678901, 3456789012, 4567890123, 5678901234],
+                    'State': ['CA', 'NY', 'TX', 'FL', 'IL'],
+                    'Region': ['West', 'Northeast', 'South', 'South', 'Midwest'],
+                    'Speciality': ['Cardiology', 'Neurology', 'Pediatrics', 'Oncology', 'Family Medicine'],
+                    'Usage Time (mins)': [45, 60, 30, 75, 25],
+                    'Count of Survey Attempts': [3, 5, 2, 4, 1],
+                    'Login Date': ['2025-01-15', '2025-01-16', '2025-01-17', '2025-01-18', '2025-01-19'],
+                    'Login Time': ['09:00:00', '10:30:00', '08:15:00', '13:45:00', '11:20:00'],
+                    'Logout Date': ['2025-01-15', '2025-01-16', '2025-01-17', '2025-01-18', '2025-01-19'],
+                    'Logout Time': ['09:45:00', '11:30:00', '08:45:00', '15:00:00', '11:45:00']
+                }
+                sample_df = pd.DataFrame(sample_data)
+                
+                # Create columns for buttons with more balanced ratios
+                col1, col2, col3, col4, col5 = st.columns([1, 2, 2, 2, 1])
                 with col2:
-                    if st.button("Load Sample Data", use_container_width=True):
+                    if st.button("Load Sample Data", use_container_width=True, key="load_sample_btn"):
                         with st.spinner("Loading sample data..."):
                             try:
-                                sample_data = {
-                                    'NPI': [1234567890, 2345678901, 3456789012, 4567890123, 5678901234],
-                                    'State': ['CA', 'NY', 'TX', 'FL', 'IL'],
-                                    'Region': ['West', 'Northeast', 'South', 'South', 'Midwest'],
-                                    'Speciality': ['Cardiology', 'Neurology', 'Pediatrics', 'Oncology', 'Family Medicine'],
-                                    'Usage Time (mins)': [45, 60, 30, 75, 25],
-                                    'Count of Survey Attempts': [3, 5, 2, 4, 1],
-                                    'Login Date': ['2025-01-15', '2025-01-16', '2025-01-17', '2025-01-18', '2025-01-19'],
-                                    'Login Time': ['09:00:00', '10:30:00', '08:15:00', '13:45:00', '11:20:00'],
-                                    'Logout Date': ['2025-01-15', '2025-01-16', '2025-01-17', '2025-01-18', '2025-01-19'],
-                                    'Logout Time': ['09:45:00', '11:30:00', '08:45:00', '15:00:00', '11:45:00']
-                                }
-                                df = pd.DataFrame(sample_data)
-                                
-                                processed_df, error_msg = process_uploaded_data(df)
+                                processed_df, error_msg = process_uploaded_data(sample_df)
                                 if processed_df is not None:
                                     st.session_state.df = processed_df
                                     st.session_state.summary = generate_data_summary(processed_df)
@@ -908,6 +874,22 @@ h1, h2{
                                     st.error(error_msg)
                             except Exception as e:
                                 st.error(f"Error loading sample data: {e}")
+                with col3:
+                    if st.button("View Sample Data", use_container_width=True, key="view_sample_btn"):
+                        st.markdown('<div class="sample-data-table">', unsafe_allow_html=True)
+                        # Use st.table to display all columns and rows without scrolling
+                        st.table(sample_df)
+                        st.markdown('</div>', unsafe_allow_html=True)
+                with col4:
+                    csv = sample_df.to_csv(index=False)
+                    st.download_button(
+                        label="Download Sample Data",
+                        data=csv,
+                        file_name="sample_data.csv",
+                        mime="text/csv",
+                        use_container_width=True,
+                        key="download_sample_btn"
+                    )
                 st.markdown('</div>', unsafe_allow_html=True)
         
         if st.session_state.df is not None:
